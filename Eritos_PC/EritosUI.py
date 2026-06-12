@@ -12,6 +12,9 @@ class EritosUI:
 
         self.contador = 0
 
+
+        # Contador de pasos
+
         self.labelPasos = tk.Label(
             root,
             text = "Pasos: 0"
@@ -19,13 +22,17 @@ class EritosUI:
 
         self.labelPasos.pack()
 
-        self.btnAvanzar = tk.Button(
+
+        # Botones
+
+        self.btnCaminar = tk.Button(
             root,
-            text = "Avanzar",
-            command = self.avanzar
+            text = "Caminar",
+            command = self.caminar
         )
 
-        self.btnAvanzar.pack()
+        self.btnCaminar.pack()
+
 
         self.btnNeutral = tk.Button(
             root,
@@ -35,6 +42,7 @@ class EritosUI:
 
         self.btnNeutral.pack()
 
+
         self.btnSentarse = tk.Button(
             root,
             text = "Sentarse",
@@ -42,6 +50,18 @@ class EritosUI:
         )
 
         self.btnSentarse.pack()
+
+
+        self.btnDarLaPata = tk.Button(
+            root,
+            text = "Saludar",
+            command = self.darLaPata
+        )
+
+        self.btnDarLaPata.pack()
+
+
+        # Consola
 
         self.log = tk.Text(
             root,
@@ -52,6 +72,8 @@ class EritosUI:
         self.log.pack()
 
     
+    # Metodos
+
     def agregarLog(self, texto):
 
         self.log.insert(
@@ -71,14 +93,14 @@ class EritosUI:
         )
 
 
-    def avanzar(self):
+    def caminar(self):
 
-        self.gato.avanzar()
+        self.gato.caminar()
 
         self.actualizarPasos()
 
-        self.agregarLog("Comando: Avanzar")
-
+        self.agregarLog("Comando: Caminar")
+    
     
     def neutral(self):
 
@@ -92,3 +114,10 @@ class EritosUI:
         self.gato.sentarse()
 
         self.agregarLog("Comando: Sentarse")
+
+
+    def darLaPata(self):
+
+        self.gato.darLaPata()
+
+        self.agregarLog("Comando: Dar la pata")
